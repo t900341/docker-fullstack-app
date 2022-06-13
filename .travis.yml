@@ -1,10 +1,14 @@
+language: node_js
+node_js:
+  - 16
+
 language: generic
 
 
 sudo: required
 
-node_js:
-  - 16
+
+
 services:
   - docker
 
@@ -37,3 +41,6 @@ after_success:
 #  
 #  access_key_id: $AWS_ACCESS_KEY
 #  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+
+
