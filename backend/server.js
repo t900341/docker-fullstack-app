@@ -15,7 +15,7 @@ db.pool.query(`CREATE TABLE lists (
     id INTEGER AUTO_INCREMENT,
     value TEXT, 
     PRIMARY KEY (id)
-)`, (err, results, fileds) => {
+)`, (err, results, fields) => {
     console.log('results', results)
 })
 
@@ -32,7 +32,7 @@ app.get('/api/hi', function (req, res) {
 app.get('/api/values', function (req, res) {
     //데이테베이스에서 모든 정보 가져오기 
     db.pool.query('SELECT * FROM lists;',
-        (err, results, fileds) => {
+        (err, results, fields) => {
             if (err)
                 return res.status(500).send(err)
             else
@@ -44,7 +44,7 @@ app.get('/api/values', function (req, res) {
 app.post('/api/value', function (req, res, next) {
     //데이터베이스에 값 넣어주기
     db.pool.query(`INSERT INTO lists (value) VALUES("${req.body.value}")`,
-        (err, results, fileds) => {
+        (err, results, fields) => {
             if (err)
                 return res.status(500).send(err)
             else
